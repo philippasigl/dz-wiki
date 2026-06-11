@@ -2,7 +2,7 @@
 title: "Sovereign Spreads, Central Bank Collateral Frameworks, and Periphery Premia in the Eurozone"
 date: "2023-06-29"
 authors: ["Florian Schuster"]
-cluster: "geldpolitik und anleihemärkte"
+cluster: geldpolitik und anleihemärkte
 tags: ["eurozone", "spreads", "debt", "ecb", "collateral", "sovereign-bonds"]
 ignore: "yes"
 reason: "Englische Uebersetzung von spreads-auf-staatsanleihezinsen-ezb-eurozone"

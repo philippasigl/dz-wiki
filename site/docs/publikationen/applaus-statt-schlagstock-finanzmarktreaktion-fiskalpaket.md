@@ -2,7 +2,7 @@
 title: Applaus statt Schlagstock - Reaktion der Finanzmaerkte auf das Fiskalpaket
 date: 2025-03-12
 authors: [Florian Schuster-Johnson]
-cluster: "geldpolitik und anleihemärkte"
+cluster: geldpolitik und anleihemärkte
 format: policy-paper
 tags: [Bundesanleihen, Finanzmaerkte, Fiskalpaket, Schuldenbremse, Renditen]
 pdf_url: "/publikationen/Applaus statt Schlagstock Was die Reaktion der Finanzmärkte auf das Fiskalpaket bedeutet.pdf"

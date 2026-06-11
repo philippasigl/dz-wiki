@@ -2,7 +2,7 @@
 title: "Was kosten unsere Schulden? Der Gegenwartswert deutscher Staatsschulden"
 date: "2021-04-01"
 authors: ["Schneemelcher", "Krahé", "Sigl-Glöckner"]
-cluster: "geldpolitik und anleihemärkte"
+cluster: geldpolitik und anleihemärkte
 format: policy-paper
 tags: ["staatsschulden", "gegenwartswert", "bundesanleihen", "zinsen", "schuldenbremse"]
 pdf_url: "/publikationen/Was kosten unsere Schulden.pdf"

@@ -1,7 +1,7 @@
 ---
 title: "Hawkish Winds: Wie Zinsen die Energiewende treffen"
 date: "2026-03-19"
-cluster: makro
+cluster: infra
 authors:
  - "Aurora Li"
 format: "policy-paper"

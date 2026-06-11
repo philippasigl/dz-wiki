@@ -2,7 +2,7 @@
 title: "Bundeswertpapiere: Zollstock, Taschenmesser, Goldbarren"
 date: "2021-09-21"
 authors: ["Kern", "Schneemelcher", "Sigl-Glöckner"]
-cluster: "geldpolitik und anleihemärkte"
+cluster: geldpolitik und anleihemärkte
 format: studie
 tags: ["staatsanleihen", "bundesanleihen", "finanzmarkt", "ezb", "ankaufprogramme"]
 pdf_url: "/publikationen/Bundeswertpapiere Zollstock, Taschenmesser, Goldbarren.pdf"

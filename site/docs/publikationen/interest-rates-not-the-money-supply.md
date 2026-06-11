@@ -2,7 +2,7 @@
 title: "Interest Rates, not the Money Supply: Towards a Non-Monetarist Interpretation of the TFEU"
 date: "2023-01-19"
 authors: ["Philipp Orphal", "Florian Kern", "Max Krahé"]
-cluster: "geldpolitik und anleihemärkte"
+cluster: geldpolitik und anleihemärkte
 tags: ["Geldpolitik", "EU-Recht", "TFEU", "Monetarismus", "EZB"]
 ignore: "yes"
 reason: "Englische Uebersetzung von zinsen-statt-geldmenge"
