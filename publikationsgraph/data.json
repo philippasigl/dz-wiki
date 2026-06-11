@@ -2431,12 +2431,6 @@
     },
     {
       "from": "viel-wissen-wenig-wachstum",
-      "to": "intel-magdeburg-analyse-de",
-      "label": "Großvolumige Mikroelektronik-Förderung",
-      "confidence": "niedrig"
-    },
-    {
-      "from": "viel-wissen-wenig-wachstum",
       "to": "comeback-deutschland-industrie-turnarounds",
       "label": "Opportunitätskosten etablierter Unternehmen (Paleschke 2026)",
       "confidence": "hoch"
