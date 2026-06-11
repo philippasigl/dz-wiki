@@ -2,7 +2,7 @@
 title: "Zinsen statt Geldmenge"
 date: "2022-10-14"
 authors: ["Orphal", "Kern", "Krah"]
-cluster: "geldpolitik und anleihemärkte"
+cluster: geldpolitik und anleihemärkte
 format: studie
 tags: ["EZB", "Monetarismus", "Art. 123 AEUV", "Zinssteuerung", "Europarecht", "Geldpolitik"]
 pdf_url: "/publikationen/Zinsen statt Geldmenge.pdf"

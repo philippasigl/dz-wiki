@@ -102,8 +102,8 @@ Alphabetisch sortiert.
 
 - **11 Themen-Seiten**
 - **67 Konzept-Seiten**
-- **104 Publikationen** im Korpus
+- **108 Publikationen** im Korpus
 
 ---
 
-*Letzte Aktualisierung: 2026-05-15*
+*Letzte Aktualisierung: 2026-06-11*

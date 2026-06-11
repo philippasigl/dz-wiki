@@ -4,10 +4,11 @@ description: >
   Automatischer Ende-zu-Ende-Lauf zur Aufnahme neuer DZ-Publikationen ins Wiki.
   Scraped dezernatzukunft.org nach neuen Fachtexten, konvertiert + entwirft jeden
   Stub vollständig, ergänzt Graph + Fact-Check, propagiert nach site/, schreibt
-  eine Review-Queue und öffnet einen Draft-PR (kein Push auf main). Gedacht für
-  einen unbeaufsichtigten Lauf alle zwei Wochen (Scheduled Remote Agent), aber
-  auch manuell via /wiki-auto-update aufrufbar. Verwende diesen Skill, wenn das
-  Wiki turnusmäßig auf den neuesten Publikationsstand gebracht werden soll.
+  eine Review-Queue und öffnet einen Draft-PR (kein Push auf main). Läuft alle
+  zwei Wochen LOKAL (Windows-Aufgabe „DZ Wiki Auto-Update", interaktiv mit
+  Bestätigung) oder manuell via /wiki-auto-update. NICHT als Remote-Routine — die
+  Cloud ist von dezernatzukunft.org IP-blockiert (403); Scrape geht nur lokal.
+  Verwende diesen Skill, wenn das Wiki turnusmäßig aktualisiert werden soll.
 ---
 
 # DZ Wiki – Automatischer Update-Lauf
@@ -21,6 +22,14 @@ bleibt Handarbeit der Nutzerin.
 Dieser Skill *orchestriert* die bestehenden Skills und Skripte — er erfindet keine Logik neu.
 Für Detailregeln verweist er auf [pdf-ingestion](../pdf-ingestion/SKILL.md),
 [network-maker](../network-maker/SKILL.md) und [fact-checker](../fact-checker/SKILL.md).
+
+> **Lokal ausführen — nicht in der Cloud.** Der Scrape-Schritt (`download_fachtexte.py`) bekommt
+> aus der Anthropic-Cloud `403 Forbidden` von dezernatzukunft.org (IP-/ASN-Sperre, kein
+> User-Agent-Problem). Vom lokalen Rechner aus ist die Seite erreichbar. Deshalb läuft dieser
+> Workflow per Windows-Aufgabe **„DZ Wiki Auto-Update"** alle zwei Wochen lokal — sie öffnet eine
+> interaktive Claude-Session, vorbelegt mit `/wiki-auto-update`, via
+> [scripts/run_wiki_update.cmd](../../../scripts/run_wiki_update.cmd). Ein Remote-Routine-Lauf
+> findet nie neue Paper und no-opt.
 
 ## Aufruf
 

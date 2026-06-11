@@ -2,7 +2,7 @@
 title: "Sovereign Debt Issuance and the Transformation of the Monetary Architecture in Prussia and the German Empire, 1740-1914"
 date: "2023-07-28"
 authors: ["Steffen Murau"]
-cluster: "geldpolitik und anleihemärkte"
+cluster: geldpolitik und anleihemärkte
 format: studie
 tags: ["fiscal-policy", "debt", "institutions", "history", "prussia", "monetary-architecture"]
 ignore: "yes"

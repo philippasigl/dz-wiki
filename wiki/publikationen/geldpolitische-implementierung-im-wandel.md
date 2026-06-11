@@ -2,7 +2,7 @@
 title: "Geldpolitische Implementierung im Wandel"
 date: "2022-05-31"
 authors: ["Florian Kern", "Philippa Sigl-Glöckner", "Max Krahé"]
-cluster: "geldpolitik und anleihemärkte"
+cluster: geldpolitik und anleihemärkte
 format: policy-paper
 tags: ["Geldpolitik", "EZB", "Bundesbank", "Monetarismus", "Zinssteuerung"]
 pdf_url: "/publikationen/Geldpolitische Implementierung im Wandel.pdf"

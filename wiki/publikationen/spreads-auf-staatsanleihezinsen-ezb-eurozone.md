@@ -2,7 +2,7 @@
 title: "Spreads auf Staatsanleihezinsen, der EZB-Sicherheitenrahmen und Peripheriepraemien in der Eurozone"
 date: "2023-07-26"
 authors: ["Florian Schuster"]
-cluster: "geldpolitik und anleihemärkte"
+cluster: geldpolitik und anleihemärkte
 format: policy-paper
 tags: ["spreads", "staatsanleihezinsen", "staatsverschuldung", "laenderrisiko", "eurozone", "ezb"]
 pdf_url: "/publikationen/Spreads auf Staatsanleihezinsen, der EZB-Sicherheitenrahmen und Peripherieprämien in der Eurozone.pdf"

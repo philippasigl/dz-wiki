@@ -2,7 +2,7 @@
 title: "Overcoming myopia in the ECB's 2025 monetary policy strategy review"
 date: "2025-05-05"
 authors: ["Jens van 't Klooster"]
-cluster: "geldpolitik und anleihemärkte"
+cluster: geldpolitik und anleihemärkte
 format: studie
 tags: ["ecb", "monetary-policy", "strategy-review", "inflation", "europe"]
 pdf_url: "/publikationen/Overcoming myopia in the ECB’s 2025 monetary policy strategy review.pdf"

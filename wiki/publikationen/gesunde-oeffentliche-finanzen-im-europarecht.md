@@ -2,7 +2,7 @@
 title: Gesunde oeffentliche Finanzen im Europarecht
 date: 2022-11-30
 authors: [Philipp Orphal, Max Krah]
-cluster: "geldpolitik und anleihemärkte"
+cluster: geldpolitik und anleihemärkte
 format: policy-paper
 tags: [Europarecht, EU-Fiskalregeln]
 pdf_url: "/publikationen/“Gesunde öffentliche Finanzen” im Europarecht.pdf"

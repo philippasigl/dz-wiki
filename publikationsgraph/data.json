@@ -1757,6 +1757,69 @@
       ],
       "web_url": "https://dezernatzukunft.org/supply-side-monitor-2/",
       "summary": "Monatlich aktualisiertes Monitoring-Tool zur Angebotsseite der Inflation: sektorale Produzentenoutputs und -preise (Destatis), Produktionsbeschränkungen (ifo-Geschäftsumfrage) und PPI-Gewichte."
+    },
+    {
+      "id": "viel-wissen-wenig-wachstum",
+      "title": "Viel Wissen, wenig Wachstum",
+      "date": "2026-05-28",
+      "authors": [
+        "Sven von Wangenheim",
+        "Alexander Marx",
+        "Florian Schuster-Johnson"
+      ],
+      "tags": [
+        "innovation",
+        "forschungsfoerderung",
+        "industriepolitik",
+        "wachstum"
+      ],
+      "clusterA": "Wirtschaft",
+      "clusterB": "wirtschaftspolitik",
+      "pdf_url": "/publikationen/Viel Wissen, wenig Wachstum.pdf",
+      "web_url": "https://dezernatzukunft.org/viel-wissen-wenig-wachstum/",
+      "summary": "Eine Analyse des Förderkatalogs des Bundes zeigt, dass die FuE-Projektförderung systematisch große, etablierte Unternehmen und mittlere Technologie-Reifegrade begünstigt und so das deutsche Innovationsparadox verstärkt. Vier Reformoptionen — SBIR-Äquivalent, Technologieprioritätenliste, Frühphasenförderung, Transferförderung — sollen gegensteuern."
+    },
+    {
+      "id": "welche-maerkte-sich-lohnen",
+      "title": "Welche Märkte sich lohnen",
+      "date": "2026-06-09",
+      "authors": [
+        "Paul Görlich",
+        "Maximilian Paleschke"
+      ],
+      "tags": [
+        "industriepolitik",
+        "subventionen",
+        "tragfaehigkeit",
+        "wettbewerbsfaehigkeit",
+        "china"
+      ],
+      "clusterA": "Wirtschaft",
+      "clusterB": "wirtschaftspolitik",
+      "pdf_url": "/publikationen/Welche Märkte sich lohnen.pdf",
+      "web_url": "https://dezernatzukunft.org/welche-maerkte-sich-lohnen/",
+      "summary": "Das Hintergrundpapier stellt den Tragfähigkeitscheck vor: eine Methode, die über den ökonomischen Profit (ROIC vs. WACC) misst, ob Geschäftsmodelle am Standort Deutschland dauerhaft tragfähig sind und welche politischen Hebel die Kalkulation verändern. Zwei Fallstudien (Verbrenner-LKW/Busse und Optical Engines für Photonik-Chips) zeigen, dass die debattendominierenden Hebel Energiekosten, Steuern und Lohnnebenkosten allein Tragfähigkeit nicht herstellen."
+    },
+    {
+      "id": "planungssicherheit-fuer-die-schiene",
+      "title": "Planungssicherheit für die Schiene: Was Deutschland von Österreich und der Schweiz lernen kann",
+      "date": "2026-06-01",
+      "authors": [
+        "Vera Huwe",
+        "Niklas Illenseer"
+      ],
+      "tags": [
+        "schiene",
+        "infrastrukturfinanzierung",
+        "sondervermoegen",
+        "annuitaetenfinanzierung",
+        "schuldenbremse"
+      ],
+      "clusterA": "Verkehr",
+      "clusterB": "infra",
+      "pdf_url": "/publikationen/Planungssicherheit für die Schiene.pdf",
+      "web_url": "https://dezernatzukunft.org/planungssicherheit-fuer-die-schiene/",
+      "summary": "Das Hintergrundpapier analysiert die Schienenfinanzierungsmodelle der Schweiz (Bahninfrastrukturfonds) und Österreichs (Annuitätenfinanzierung) und schlägt für Deutschland einen schrittweise aufgebauten Eisenbahninfrastrukturfonds (EIF) ohne Kreditermächtigung vor, der nach Ende des SVIK mit einer schuldenbremsenneutralen Annuitätenfinanzierung kombiniert wird."
     }
   ],
   "edges": [
@@ -2364,6 +2427,60 @@
       "from": "supply-side-monitor",
       "to": "wirtschaftliche-mehrkosten-durch-energiepreisanstiege",
       "label": "Energiepreisschock-Grundlagen",
+      "confidence": "hoch"
+    },
+    {
+      "from": "viel-wissen-wenig-wachstum",
+      "to": "comeback-deutschland-industrie-turnarounds",
+      "label": "Opportunitätskosten etablierter Unternehmen (Paleschke 2026)",
+      "confidence": "hoch"
+    },
+    {
+      "from": "viel-wissen-wenig-wachstum",
+      "to": "wie-viel-bang-for-the-buck-steckt-in-subventionen",
+      "label": "Effektivität von Unternehmenssubventionen",
+      "confidence": "mittel"
+    },
+    {
+      "from": "welche-maerkte-sich-lohnen",
+      "to": "comeback-deutschland-industrie-turnarounds",
+      "label": "Turnaround-Anschluss (Paleschke 2026)",
+      "confidence": "hoch"
+    },
+    {
+      "from": "welche-maerkte-sich-lohnen",
+      "to": "wie-viel-bang-for-the-buck-steckt-in-subventionen",
+      "label": "Ergänzung zur fiskalischen Kosten-Arbeitsplatz-Relation",
+      "confidence": "hoch"
+    },
+    {
+      "from": "welche-maerkte-sich-lohnen",
+      "to": "bundeshaushaltsmonitor-2026",
+      "label": "Energiesubventionen-Referenz (28 Mrd. Euro)",
+      "confidence": "hoch"
+    },
+    {
+      "from": "welche-maerkte-sich-lohnen",
+      "to": "wie-china-markt-fuer-markt-erobert",
+      "label": "China-Schock-2.0-Anschluss",
+      "confidence": "mittel"
+    },
+    {
+      "from": "planungssicherheit-fuer-die-schiene",
+      "to": "bahn-strassen-finanzieren-ohne-schuldenbremse",
+      "label": "Schuldenbremsenneutrale Darlehenskonstruktion (Schuster et al. 2024)",
+      "confidence": "hoch"
+    },
+    {
+      "from": "planungssicherheit-fuer-die-schiene",
+      "to": "eckpunkte-fuer-die-finanzierung-eines-zukunftsfaehigen-verkehrssystems",
+      "label": "Grundlage Investitionsbedarf und Maut-Optionen",
+      "confidence": "hoch"
+    },
+    {
+      "from": "planungssicherheit-fuer-die-schiene",
+      "to": "entgleist",
+      "label": "Vorgängerpapier Trassenpreise (Huwe & Illenseer 2025)",
       "confidence": "hoch"
     }
   ],

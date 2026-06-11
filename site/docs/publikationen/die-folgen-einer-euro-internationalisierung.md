@@ -2,7 +2,7 @@
 title: Die Folgen einer Euro-Internationalisierung
 date: 2025-11-14
 authors: [Nils Gerresheim, Max Krahé, Jens van 't Klooster]
-cluster: "geldpolitik und anleihemärkte"
+cluster: geldpolitik und anleihemärkte
 format: policy-paper
 tags: [Euro, Reservewaehrung, Wechselkurse, Geldpolitik, Dollar]
 pdf_url: "/publikationen/Die Folgen einer Euro-Internationalisierung.pdf"

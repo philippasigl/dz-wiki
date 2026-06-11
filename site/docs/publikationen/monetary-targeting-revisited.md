@@ -2,7 +2,7 @@
 title: "Monetary Targeting revisited"
 date: "2022-06-29"
 authors: ["Florian Kern", "Philippa Sigl-Glueckner", "Max Krah"]
-cluster: "geldpolitik und anleihemärkte"
+cluster: geldpolitik und anleihemärkte
 format: studie
 tags: ["monetary-policy", "monetary-targeting", "interest-rate-targeting", "inflation-targeting", "bundesbank", "fed", "ecb"]
 ignore: "yes"

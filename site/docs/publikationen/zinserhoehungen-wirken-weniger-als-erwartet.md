@@ -1,7 +1,7 @@
 ---
 title: "Zinserhöhungen wirken weniger als erwartet"
 date: "2026-02-10"
-cluster: "geldpolitik und anleihemärkte"
+cluster: geldpolitik und anleihemärkte
 authors:
  - "Matthias Enzinger"
  - "Sebastian Gechert"
