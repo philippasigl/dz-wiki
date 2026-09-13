@@ -47,21 +47,30 @@ Saskia Gottschalk, Florian Schuster-Johnson, Hannah Hägele, Amelie Kaupa · 202
 
 ## Sammelpunkte (nicht paper-spezifisch)
 
-- **Scraper lädt Duplikate.** `download_fachtexte.py` dedupliziert nur über den Dateinamen. Die
-  Website liefert dieselbe PDF unter wechselnden Namen (Halbgeviertstrich vs. Bindestrich,
-  gerades vs. typografisches Apostroph, Lang- vs. Kurztitel), deshalb kamen in diesem Lauf
-  **12 byte-identische Duplikate** herunter. Alle 12 wurden wieder gelöscht und in
-  `download_log.json` unter `duplicates_removed` protokolliert. Fix: Dedupe über MD5 statt
-  Dateiname.  ☐ Skript anpassen?
-- **`add_to_graph.py` ist veraltet.** Es schreibt `cluster` statt `clusterA`/`clusterB`, lässt
-  `pdf_url`/`web_url`/`summary` weg und kennt den Cluster `geldpolitik und anleihemärkte` nicht
-  (bricht dort ab). Die beiden Nodes wurden deshalb von Hand im Bestandsformat eingetragen.  ☐ Skript anpassen?
+- **Scraper lädt Duplikate — behoben.** `download_fachtexte.py` deduplizierte nur über den
+  Dateinamen. Die Website liefert dieselbe PDF unter wechselnden Namen (Halbgeviertstrich vs.
+  Bindestrich, gerades vs. typografisches Apostroph, Lang- vs. Kurztitel), deshalb kamen in
+  diesem Lauf **12 byte-identische Duplikate** herunter. Alle 12 wurden gelöscht.
+  Das Skript lädt jetzt in eine Temp-Datei, vergleicht den MD5 gegen einen Index aller
+  vorhandenen PDFs und verwirft Treffer, bevor sie im Korpus landen; verworfene Dateien stehen
+  in `download_log.json` unter `duplicates_removed`. Gegenprobe: erneuter Lauf meldet
+  0 Downloads, 12 Duplikate, 0 Fehler, PDF-Zahl unverändert 119.  ☐ ok
+- **`add_to_graph.py` war veraltet — behoben.** Es schrieb `cluster` statt `clusterA`/`clusterB`,
+  ließ `pdf_url`/`web_url`/`summary` weg und kannte den Cluster `geldpolitik und anleihemärkte`
+  nicht (brach dort ab). Die beiden Nodes dieses Laufs wurden deshalb von Hand im Bestandsformat
+  eingetragen. Das Skript schreibt jetzt das Bestandsformat; `clusterA` kann optional im
+  Frontmatter gesetzt werden und fällt sonst auf die Cluster-ID zurück. Gegenprobe: das Skript
+  erzeugt für `china-s-dedollarisation-strategy` exakt den von Hand eingetragenen Knoten.  ☐ ok
 - **Doppelter Knoten für dieselbe Publikation:** `reformen-brauchen-kitas` und
   `wer-reformen-will-muss-kitas-bauen` beschreiben „Wer Reformen will, muss Kitas bauen", keiner
   trägt `ignore: yes`. Vorbestehend, nicht aus diesem Lauf.  ☐ Hauptknoten festlegen
 - **`markitdown` nicht im PATH.** `convert_pdf_to_markdown.py` ruft das CLI auf; unter Windows
   liegt es in `…\Python311\Scripts`, das nicht im PATH ist — die Konvertierung meldet dann
-  fälschlich „markitdown nicht installiert". Im Lauf per PATH-Erweiterung umgangen.  ☐ Aufruf auf `python -m` umstellen?
+  fälschlich „markitdown nicht installiert". Im Lauf per PATH-Erweiterung umgangen, Skript
+  unverändert.  ☐ Aufruf auf `python -m` umstellen?
+- **`--reviewer` im Skill wirkungslos.** `gh pr create --reviewer philippasigl` läuft ins Leere,
+  weil GitHub keine Review-Anfrage an die Autorin des PRs zulässt (`reviewRequests` bleibt leer).
+  Die Benachrichtigungs-Mail, auf die der `wiki-auto-update`-Skill baut, kommt damit nie.  ☐ Skill anpassen?
 - **`web_url`-Konvention hat sich geändert.** Die Website nutzt jetzt
   `dezernatzukunft.org/publikationen/<slug>` (per `<link rel="canonical">` bestätigt); der
   Bestand hat überwiegend die alte Form `dezernatzukunft.org/<slug>/`. Die beiden neuen Stubs

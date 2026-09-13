@@ -4,9 +4,12 @@ Download all Fachtexte from DZ archive.
 Handles PDF links that redirect to actual PDF files.
 """
 
+import hashlib
 import json
+import os
 import re
 import time
+import tempfile
 from pathlib import Path
 from urllib.parse import urljoin
 
@@ -161,6 +164,29 @@ def download_pdf(pdf_url: str, output_path: Path) -> bool:
         print(f"  Download error: {e}")
         return False
 
+def file_md5(path: Path) -> str:
+    """MD5 of a file's bytes, read in chunks."""
+    h = hashlib.md5()
+    with open(path, 'rb') as f:
+        for chunk in iter(lambda: f.read(1 << 20), b''):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def build_hash_index(directory: Path) -> dict:
+    """Map md5 -> filename for every PDF already on disk.
+
+    The site serves the same PDF under varying filenames (en dash vs hyphen,
+    typographic vs straight apostrophe, long vs short title), so a filename
+    check alone re-downloads files we already have. Content hashing catches
+    those.
+    """
+    index = {}
+    for pdf in directory.glob('*.pdf'):
+        index.setdefault(file_md5(pdf), pdf.name)
+    return index
+
+
 def sanitize_filename(name: str) -> str:
     """Create a safe filename from title."""
     name = re.sub(r'[<>:"/\\|?*]', '', name)
@@ -178,6 +204,9 @@ def main():
     # Get existing files (case-insensitive matching)
     existing = {f.stem.lower() for f in OUTPUT_DIR.glob('*.pdf')}
     print(f"Bereits vorhanden: {len(existing)} PDFs")
+    print("Baue Hash-Index der vorhandenen PDFs...")
+    hash_index = build_hash_index(OUTPUT_DIR)
+    print(f"  {len(hash_index)} verschiedene Inhalte")
 
     # Collect all article links from Fachtexte pages
     print("\nSammle Fachtexte-Links...")
@@ -206,6 +235,7 @@ def main():
     results = {
         'downloaded': [],
         'skipped': [],
+        'duplicates_removed': [],
         'no_pdf': [],
         'error': []
     }
@@ -235,15 +265,31 @@ def main():
             results['skipped'].append(filename)
             continue
 
-        # Download
+        # Download to a temp file first, so a duplicate never lands in the corpus
         download_url = final_url if final_url else pdf_link
         print(f"  Lade: {filename[:60]}...")
 
-        if download_pdf(download_url, output_path):
-            print("  OK")
-            results['downloaded'].append(filename)
-            existing.add(sanitize_filename(title).lower())
+        fd, tmp_name = tempfile.mkstemp(suffix='.pdf', dir=str(OUTPUT_DIR))
+        os.close(fd)
+        tmp_path = Path(tmp_name)
+
+        if download_pdf(download_url, tmp_path):
+            digest = file_md5(tmp_path)
+            if digest in hash_index:
+                tmp_path.unlink()
+                print(f"  Duplikat von '{hash_index[digest]}' - verworfen")
+                results['duplicates_removed'].append({
+                    'filename': filename,
+                    'duplicate_of': hash_index[digest],
+                })
+            else:
+                tmp_path.replace(output_path)
+                print("  OK")
+                results['downloaded'].append(filename)
+                existing.add(sanitize_filename(title).lower())
+                hash_index[digest] = filename
         else:
+            tmp_path.unlink(missing_ok=True)
             print("  FEHLER")
             results['error'].append({'filename': filename, 'url': download_url})
 
@@ -255,6 +301,7 @@ def main():
     print("=" * 50)
     print(f"Heruntergeladen: {len(results['downloaded'])}")
     print(f"Uebersprungen:   {len(results['skipped'])}")
+    print(f"Duplikate:       {len(results['duplicates_removed'])}")
     print(f"Kein PDF:        {len(results['no_pdf'])}")
     print(f"Fehler:          {len(results['error'])}")
 
