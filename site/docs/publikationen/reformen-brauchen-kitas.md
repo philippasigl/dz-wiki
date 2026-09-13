@@ -12,7 +12,7 @@ tags:
  - "kommunen"
  - "deutschland"
 pdf_url: "/publikationen/Reformen brauchen Kitas - Dezernat Zukunft.pdf"
-web_url: "https://dezernatzukunft.org/reformen-brauchen-kitas/"
+web_url: "https://dezernatzukunft.org/wer-reformen-will-muss-kitas-bauen-2/"
 summary: "Arbeitsmarktreformen verpuffen, solange Kinderbetreuung fehlt. Der Geldbrief zeigt, warum der Kita-Ausbau Voraussetzung für mehr Erwerbstätigkeit ist und wie die Finanzierungslücke geschlossen werden kann."
 ---
 

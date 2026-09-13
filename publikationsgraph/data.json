@@ -1820,6 +1820,51 @@
       "pdf_url": "/publikationen/Planungssicherheit für die Schiene.pdf",
       "web_url": "https://dezernatzukunft.org/planungssicherheit-fuer-die-schiene/",
       "summary": "Das Hintergrundpapier analysiert die Schienenfinanzierungsmodelle der Schweiz (Bahninfrastrukturfonds) und Österreichs (Annuitätenfinanzierung) und schlägt für Deutschland einen schrittweise aufgebauten Eisenbahninfrastrukturfonds (EIF) ohne Kreditermächtigung vor, der nach Ende des SVIK mit einer schuldenbremsenneutralen Annuitätenfinanzierung kombiniert wird."
+    },
+    {
+      "id": "wie-andere-laender-die-rente-finanzieren",
+      "title": "Wie andere Länder die Rente finanzieren",
+      "date": "2026-06-22",
+      "clusterA": "Sozialstaat",
+      "clusterB": "haushalt",
+      "authors": [
+        "Saskia Gottschalk",
+        "Florian Schuster-Johnson",
+        "Hannah Hägele",
+        "Amelie Kaupa"
+      ],
+      "tags": [
+        "rente",
+        "bundeshaushalt",
+        "alterssicherung",
+        "kapitaldeckung",
+        "laendervergleich"
+      ],
+      "pdf_url": "/publikationen/Wie andere Länder die Rente finanzieren.pdf",
+      "web_url": "https://dezernatzukunft.org/publikationen/wie-andere-laender-die-rente-finanzieren",
+      "summary": "Dänemark, Kanada, die Niederlande, Schweden und die Schweiz zeigen, wie Rentensysteme demografiefest gemacht werden. Eine Reform nach ihrem Vorbild könnte den Zielkonflikt zwischen guten Renten und nachhaltigen Finanzen besser austarieren, löst aber das akute Haushaltsproblem nicht."
+    },
+    {
+      "id": "china-s-dedollarisation-strategy",
+      "title": "China's Dedollarisation Strategy",
+      "date": "2026-07-07",
+      "clusterA": "geldpolitik und anleihemärkte",
+      "clusterB": "geldpolitik und anleihemärkte",
+      "authors": [
+        "Nils Gerresheim",
+        "Max Krahé",
+        "Jens van 't Klooster"
+      ],
+      "tags": [
+        "dedollarisierung",
+        "renminbi",
+        "zahlungsinfrastruktur",
+        "euro-internationalisierung",
+        "geooekonomie"
+      ],
+      "pdf_url": "/publikationen/China’s Dedollarisation Strategy.pdf",
+      "web_url": "https://dezernatzukunft.org/publikationen/chinas-dedollarisation-strategy",
+      "summary": "China hat seine Dollarabhängigkeit vor allem bei der Zahlungsabwicklung reduziert, kaum aber bei Fakturierung und Anlage. Europa kann daraus lernen, wo eigene Abhängigkeiten wirklich angreifbar sind."
     }
   ],
   "edges": [
@@ -2482,6 +2527,42 @@
       "to": "entgleist",
       "label": "Vorgängerpapier Trassenpreise (Huwe & Illenseer 2025)",
       "confidence": "hoch"
+    },
+    {
+      "from": "china-s-dedollarisation-strategy",
+      "to": "die-folgen-einer-euro-internationalisierung",
+      "label": "Wohlfahrtsschätzung Euro-Internationalisierung",
+      "confidence": "hoch"
+    },
+    {
+      "from": "china-s-dedollarisation-strategy",
+      "to": "europas-truempfe-gegen-trump",
+      "label": "Dollarabhängigkeit als Druckmittel",
+      "confidence": "hoch"
+    },
+    {
+      "from": "wie-andere-laender-die-rente-finanzieren",
+      "to": "bundeshaushaltsmonitor-2026",
+      "label": "Haushaltslücke als Ausgangslage",
+      "confidence": "hoch"
+    },
+    {
+      "from": "wie-andere-laender-die-rente-finanzieren",
+      "to": "5-milliarden-spielraum-im-sozialstaat-gewinnen",
+      "label": "Sozialstaatsausgaben-Vorarbeit",
+      "confidence": "hoch"
+    },
+    {
+      "from": "wie-andere-laender-die-rente-finanzieren",
+      "to": "wer-reformen-will-muss-kitas-bauen",
+      "label": "Erwerbstätigkeit und Haushaltswirkung",
+      "confidence": "mittel"
+    },
+    {
+      "from": "wie-andere-laender-die-rente-finanzieren",
+      "to": "was-kostet-eine-sichere-lebenswerte-und-nachhaltige-zukunft",
+      "label": "Finanzbedarfe des Staates",
+      "confidence": "mittel"
     }
   ],
   "clusters": {
