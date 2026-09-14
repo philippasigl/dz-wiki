@@ -4,9 +4,12 @@ Download all Fachtexte from DZ archive.
 Handles PDF links that redirect to actual PDF files.
 """
 
+import hashlib
 import json
+import os
 import re
 import time
+import tempfile
 from pathlib import Path
 from urllib.parse import urljoin
 
@@ -15,55 +18,40 @@ from bs4 import BeautifulSoup
 
 # Configuration
 BASE_URL = "https://dezernatzukunft.org"
-ARCHIVE_URL = f"{BASE_URL}/veroffentlichungen/archiv-seite-des-dezernats-zukunft/"
+ARCHIVE_URL = f"{BASE_URL}/publikationen"
 OUTPUT_DIR = Path(__file__).parent.parent / "publikationen"
 DELAY = 0.5  # seconds between requests
+MAX_PAGES = 30  # safety cap; loop stops early once a page has no article cards
 
 def get_archive_page(page_num: int) -> str:
-    """Fetch an archive page with Fachtexte filter."""
-    params = {
-        "_categories": "fachtexte",
-        "_paged": page_num
-    }
-    response = requests.get(ARCHIVE_URL, params=params, timeout=30)
+    """Fetch an archive listing page (1-indexed; page 1 has no /page: suffix)."""
+    url = ARCHIVE_URL if page_num == 1 else f"{ARCHIVE_URL}/page:{page_num}"
+    response = requests.get(url, timeout=30)
     response.raise_for_status()
     return response.text
 
 def extract_article_links(html: str) -> list:
-    """Extract article URLs from archive page - only actual articles."""
+    """Extract Fachtext article URLs from an archive listing page.
+
+    The listing shows every category (Fachtext, Geldbrief, Dashboard, ...) on
+    the same unfiltered page; each card carries its category as visible text
+    in `.article-card__category`, so filtering happens here rather than via
+    a URL query param (the site's category filter is client-side JS, no
+    server-rendered filtered URL exists).
+    """
     soup = BeautifulSoup(html, 'html.parser')
     links = []
 
-    # Find article entries in the grid
-    # Look for links that are article titles (usually in h2, h3, or specific classes)
-    for article in soup.find_all(['article', 'div'], class_=re.compile(r'post|entry|item')):
-        for link in article.find_all('a', href=True):
-            href = link['href']
-            # Must be a DZ article URL
-            if href.startswith(BASE_URL) and href != BASE_URL + '/':
-                # Exclude known non-article pages
-                excludes = ['/category/', '/author/', '/tag/', '/page/',
-                           '/veroffentlichungen/', '/kontakt', '/impressum',
-                           '/datenschutz', '/spenden', '/presse', '/ueberuns',
-                           '/veranstaltungen', '/en/', 'alle_veroffentlichungen',
-                           'all-publications', '?']
-                if not any(ex in href for ex in excludes):
-                    if href not in links:
-                        links.append(href)
-
-    # Fallback: if no articles found with class, try all links
-    if not links:
-        for link in soup.find_all('a', href=True):
-            href = link['href']
-            if href.startswith(BASE_URL) and href != BASE_URL + '/':
-                excludes = ['/category/', '/author/', '/tag/', '/page/',
-                           '/veroffentlichungen/', '/kontakt', '/impressum',
-                           '/datenschutz', '/spenden', '/presse', '/ueberuns',
-                           '/veranstaltungen', '/en/', 'alle_veroffentlichungen',
-                           'all-publications', '?', 'empn']
-                if not any(ex in href for ex in excludes):
-                    if href not in links:
-                        links.append(href)
+    for card in soup.find_all('a', class_=re.compile(r'\barticle-card\b')):
+        href = card.get('href')
+        if not href or not href.startswith(BASE_URL):
+            continue
+        category_tag = card.find(class_='article-card__category')
+        category = category_tag.get_text(strip=True) if category_tag else ''
+        if 'Fachtext' not in category:
+            continue
+        if href not in links:
+            links.append(href)
 
     return links
 
@@ -84,15 +72,21 @@ def find_pdf_link(article_url: str) -> tuple:
 
         pdf_link = None
 
+        # Method 0: current site template marks the PDF card with class "file--pdf"
+        file_link = soup.find('a', class_=re.compile(r'\bfile--pdf\b'))
+        if file_link and file_link.get('href'):
+            pdf_link = file_link['href']
+
         # Method 1: Look for "Download PDF" links (case insensitive)
-        for link in soup.find_all('a', href=True):
-            link_text = link.get_text(strip=True).lower()
-            if 'download' in link_text and 'pdf' in link_text:
-                pdf_link = link['href']
-                break
-            if link_text == 'pdf' or link_text == 'download':
-                pdf_link = link['href']
-                break
+        if not pdf_link:
+            for link in soup.find_all('a', href=True):
+                link_text = link.get_text(strip=True).lower()
+                if 'download' in link_text and 'pdf' in link_text:
+                    pdf_link = link['href']
+                    break
+                if link_text == 'pdf' or link_text == 'download':
+                    pdf_link = link['href']
+                    break
 
         # Method 2: Look for links containing author-year pattern (common for DZ)
         if not pdf_link:
@@ -170,6 +164,29 @@ def download_pdf(pdf_url: str, output_path: Path) -> bool:
         print(f"  Download error: {e}")
         return False
 
+def file_md5(path: Path) -> str:
+    """MD5 of a file's bytes, read in chunks."""
+    h = hashlib.md5()
+    with open(path, 'rb') as f:
+        for chunk in iter(lambda: f.read(1 << 20), b''):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def build_hash_index(directory: Path) -> dict:
+    """Map md5 -> filename for every PDF already on disk.
+
+    The site serves the same PDF under varying filenames (en dash vs hyphen,
+    typographic vs straight apostrophe, long vs short title), so a filename
+    check alone re-downloads files we already have. Content hashing catches
+    those.
+    """
+    index = {}
+    for pdf in directory.glob('*.pdf'):
+        index.setdefault(file_md5(pdf), pdf.name)
+    return index
+
+
 def sanitize_filename(name: str) -> str:
     """Create a safe filename from title."""
     name = re.sub(r'[<>:"/\\|?*]', '', name)
@@ -187,20 +204,26 @@ def main():
     # Get existing files (case-insensitive matching)
     existing = {f.stem.lower() for f in OUTPUT_DIR.glob('*.pdf')}
     print(f"Bereits vorhanden: {len(existing)} PDFs")
+    print("Baue Hash-Index der vorhandenen PDFs...")
+    hash_index = build_hash_index(OUTPUT_DIR)
+    print(f"  {len(hash_index)} verschiedene Inhalte")
 
     # Collect all article links from Fachtexte pages
     print("\nSammle Fachtexte-Links...")
     all_articles = []
 
-    for page in range(1, 5):  # 4 pages
-        print(f"  Seite {page}/4...")
+    for page in range(1, MAX_PAGES + 1):
+        print(f"  Seite {page}...")
         try:
             html = get_archive_page(page)
             links = extract_article_links(html)
-            print(f"    {len(links)} Links gefunden")
+            print(f"    {len(links)} Fachtext-Links gefunden")
+            if not links and page > 1:
+                break
             all_articles.extend(links)
         except Exception as e:
             print(f"    Fehler: {e}")
+            break
         time.sleep(DELAY)
 
     # Deduplicate
@@ -212,6 +235,7 @@ def main():
     results = {
         'downloaded': [],
         'skipped': [],
+        'duplicates_removed': [],
         'no_pdf': [],
         'error': []
     }
@@ -241,15 +265,31 @@ def main():
             results['skipped'].append(filename)
             continue
 
-        # Download
+        # Download to a temp file first, so a duplicate never lands in the corpus
         download_url = final_url if final_url else pdf_link
         print(f"  Lade: {filename[:60]}...")
 
-        if download_pdf(download_url, output_path):
-            print("  OK")
-            results['downloaded'].append(filename)
-            existing.add(sanitize_filename(title).lower())
+        fd, tmp_name = tempfile.mkstemp(suffix='.pdf', dir=str(OUTPUT_DIR))
+        os.close(fd)
+        tmp_path = Path(tmp_name)
+
+        if download_pdf(download_url, tmp_path):
+            digest = file_md5(tmp_path)
+            if digest in hash_index:
+                tmp_path.unlink()
+                print(f"  Duplikat von '{hash_index[digest]}' - verworfen")
+                results['duplicates_removed'].append({
+                    'filename': filename,
+                    'duplicate_of': hash_index[digest],
+                })
+            else:
+                tmp_path.replace(output_path)
+                print("  OK")
+                results['downloaded'].append(filename)
+                existing.add(sanitize_filename(title).lower())
+                hash_index[digest] = filename
         else:
+            tmp_path.unlink(missing_ok=True)
             print("  FEHLER")
             results['error'].append({'filename': filename, 'url': download_url})
 
@@ -261,6 +301,7 @@ def main():
     print("=" * 50)
     print(f"Heruntergeladen: {len(results['downloaded'])}")
     print(f"Uebersprungen:   {len(results['skipped'])}")
+    print(f"Duplikate:       {len(results['duplicates_removed'])}")
     print(f"Kein PDF:        {len(results['no_pdf'])}")
     print(f"Fehler:          {len(results['error'])}")
 

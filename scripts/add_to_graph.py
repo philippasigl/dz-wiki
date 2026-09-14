@@ -27,7 +27,8 @@ SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPT_DIR.parent
 GRAPH_FILE = PROJECT_ROOT / "publikationsgraph" / "data.json"
 
-VALID_CLUSTERS = {"fiskalpolitik", "haushalt", "geldpolitik", "infra", "wirtschaftspolitik", "makro", "ausland"}
+VALID_CLUSTERS = {"fiskalpolitik", "haushalt", "geldpolitik und anleihemärkte", "infra",
+                  "wirtschaftspolitik", "makro", "ausland"}
 
 
 def extract_frontmatter(md_path: Path) -> dict:
@@ -93,13 +94,29 @@ def add_node(graph: dict, slug: str, frontmatter: dict) -> bool:
         print(f"Node '{slug}' existiert bereits.")
         return False
 
+    # clusterB ist die kanonische Cluster-ID aus dem Frontmatter, clusterA das
+    # Thema aus der Graph-eigenen Taxonomie (graph['clusters']['A']). Fehlt ein
+    # clusterA im Frontmatter, faellt es auf clusterB zurueck - so machen es
+    # auch die Bestandsknoten im Geldpolitik-Cluster.
+    cluster_b = frontmatter['cluster']
+    cluster_a = frontmatter.get('clusterA', cluster_b)
+
+    known_a = set(graph.get('clusters', {}).get('A', {}).get('items', {}))
+    if known_a and cluster_a not in known_a and cluster_a != cluster_b:
+        print(f"Warnung: clusterA '{cluster_a}' ist in der Graph-Taxonomie unbekannt.")
+        print(f"  Bekannt: {', '.join(sorted(known_a))}")
+
     node = {
         "id": slug,
         "title": frontmatter['title'],
         "date": str(frontmatter['date']),
-        "cluster": frontmatter['cluster'],
+        "clusterA": cluster_a,
+        "clusterB": cluster_b,
         "authors": frontmatter['authors'],
-        "tags": frontmatter.get('tags', [])
+        "tags": frontmatter.get('tags', []),
+        "pdf_url": frontmatter.get('pdf_url', ''),
+        "web_url": frontmatter.get('web_url', ''),
+        "summary": frontmatter.get('summary', ''),
     }
 
     graph['nodes'].append(node)
@@ -144,6 +161,11 @@ def main():
         print(f"  Titel:   {frontmatter['title']}")
         print(f"  Datum:   {frontmatter['date']}")
         print(f"  Cluster: {frontmatter['cluster']}")
+        if 'clusterA' not in frontmatter:
+            print(f"  Thema:   {frontmatter['cluster']} (aus cluster abgeleitet - ggf. "
+                  f"clusterA im Frontmatter setzen)")
+        else:
+            print(f"  Thema:   {frontmatter['clusterA']}")
         print(f"  Autoren: {', '.join(frontmatter['authors'])}")
         print()
         print("Vergiss nicht, Edges manuell hinzuzufügen!")

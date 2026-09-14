@@ -1,57 +1,84 @@
-# Review-Queue — Auto-Update 2026-06-11
+# Review-Queue — Auto-Update 2026-09-10
 
-Automatischer Lauf hat **3 neue Publikationen** entworfen und **1 Duplikat** markiert. Bitte je
-Paper die offenen Punkte prüfen, ggf. im Stub korrigieren, dann den PR mergen (Merge = live).
+Automatischer Lauf hat **2 neue Publikationen** entworfen. Review ist eingearbeitet: beide
+Cluster bestätigt, fünf Kanten bestätigt, eine verworfen, das vermeintliche Knoten-Duplikat
+als Geldbrief/Fachtext-Paar geklärt.
 
-Branch: `auto/wiki-update-2026-06-11`
+Branch: `auto/wiki-update-2026-08-27` (Lauf vom 27.08. war beim Download stehengeblieben und
+wurde hier fortgeführt, statt einen neuen Branch aufzumachen)
 
-Alle Stubs bestehen `check_stub_format.py` ([OK]) und `check_stub_numbers.py` (0 fehlende Zahlen).
-Der Lauf übernimmt auch die Restarbeit des unterbrochenen Laufs vom 2026-06-01 (2 PDFs aus Backlog).
+## china-s-dedollarisation-strategy ([wiki/publikationen/china-s-dedollarisation-strategy.md](wiki/publikationen/china-s-dedollarisation-strategy.md))
 
-> **Review 2026-06-11 (Philippa):** Kante viel-wissen-wenig-wachstum → intel-magdeburg-analyse-de
-> **verworfen** (aus dem Graphen entfernt); alle übrigen Punkte bestätigt.
+Nils Gerresheim, Max Krahé, Jens van 't Klooster · 2026-07-07 · Policy Paper
 
-## viel-wissen-wenig-wachstum  ([wiki/publikationen/viel-wissen-wenig-wachstum.md](wiki/publikationen/viel-wissen-wenig-wachstum.md))
-„Viel Wissen, wenig Wachstum" — Innovationsförderung des Bundes, 2026-05-28, Wangenheim/Marx/Schuster-Johnson.
-- **Cluster:** `wirtschaftspolitik` — Grenzfall? Alternative: `haushalt` (Allokation der 23 Mrd. € FuE-Bundesausgaben); Fokus liegt aber auf Unternehmensförderung/Innovationspolitik.  ☑ ok
+- **Cluster:** `geldpolitik und anleihemärkte` — im Review bestätigt.  ☑ ok
 - **Kanten:**
-  - → `comeback-deutschland-industrie-turnarounds` (hoch, explizite Referenz Paleschke 2026)  ☑ ok
-  - → `wie-viel-bang-for-the-buck-steckt-in-subventionen` (**mittel**, thematisch, keine Zitation)  ☑ bestätigt
-  - ~~→ `intel-magdeburg-analyse-de` (niedrig)~~  ☑ **verworfen** — aus dem Graphen entfernt (Review 2026-06-11)
-- **Fact-Check:** 0 ✗ / 1 ⚠ — Schlussfolgerungs-Verweis auf [[wie-viel-bang-for-the-buck-steckt-in-subventionen]] ist redaktionelle Einordnung, im PDF nicht zitiert. Hinweis: PDF selbst inkonsistent beim Großunternehmen-Anteil (S. 10: 65 %, S. 16: 64 %); Stub folgt 65 %. Siehe `wiki/_fact-check/viel-wissen-wenig-wachstum.md`  ☑ geprüft
-- **ignore: yes?** nein — eigenständige Publikation  ☑ ok
-- **Hub-Folgearbeit:** ggf. `/auto-wiki update-all` für Thema `wirtschaft` (Industriepolitik/Subventionen)
+  - `china-s-dedollarisation-strategy → die-folgen-einer-euro-internationalisierung`
+    (hoch, „Wohlfahrtsschätzung Euro-Internationalisierung") — im Literaturverzeichnis belegt.  ☑ bestätigt
+  - `china-s-dedollarisation-strategy → europas-truempfe-gegen-trump`
+    (hoch, „Dollarabhängigkeit als Druckmittel") — Sigl-Glöckner (2026) im Literaturverzeichnis.
+    Zeigt auf den deutschen Hauptknoten, weil `europe-s-trump-cards` `ignore: yes` trägt.  ☑ bestätigt
+- **Fact-Check:** 0 ✗ / 2 ⚠ — `wiki/_fact-check/china-s-dedollarisation-strategy.md` (lokal, gitignored).
+  Beide ⚠ unkritisch; #2 ist die korpusweite Frage „van 't Klooster" vs. „van’t Klooster".  ☐ geprüft
+- **ignore: yes?** nein — eigenständige Publikation.  ☐ ok
+- **Hub-Folgearbeit:** `/auto-wiki update-all` für Geldpolitik & Anleihemärkte (Euro-Internationalisierung,
+  Dollarabhängigkeit) — der Hub kennt das Papier noch nicht.
 
-## planungssicherheit-fuer-die-schiene  ([wiki/publikationen/planungssicherheit-fuer-die-schiene.md](wiki/publikationen/planungssicherheit-fuer-die-schiene.md))
-„Planungssicherheit für die Schiene: Was Deutschland von Österreich und der Schweiz lernen kann", 2026-06-01, Huwe/Illenseer.
-- **Cluster:** `infra` — Grenzfall! Alternative: `haushalt`. Begründung infra: Kern ist Finanzierungsstruktur außerhalb des Bundeshaushalts (Sondervermögen + schuldenbremsenneutrale Annuitätenfinanzierung). Aber: die Schwester-Papiere `entgleist` und `eckpunkte-...verkehrssystems` liegen in `haushalt` — falls Konsistenz wichtiger ist, umhängen.  ☑ ok (bleibt infra)
-- **Kanten** (alle hoch, explizit zitiert):
-  - → `bahn-strassen-finanzieren-ohne-schuldenbremse` (Schuster et al. 2024)  ☑ ok
-  - → `eckpunkte-fuer-die-finanzierung-eines-zukunftsfaehigen-verkehrssystems` (Agora/DZ 2025)  ☑ ok
-  - → `entgleist` (Huwe & Illenseer 2025)  ☑ ok
-  - *Nicht angelegt:* → `bundeshaushaltsmonitor-2026` (zwar zitiert, aber geringe thematische Nähe)  ☑ ok (nicht angelegt)
-- **Fact-Check:** 0 ✗ / 2 ⚠ — (1) Maut-Kennzahl „10 Mrd. € 2035" lässt PDF-Bedingung „sofern etwa hälftig der Schiene bereitgestellt" weg; (2) Trassenpreis-Zuschreibung an [[entgleist]] — PDF zitiert tatsächlich Huwe & Illenseer 2025 „Warum Bahnfahren noch teurer wird" (inhaltlich deckungsgleich). Siehe `wiki/_fact-check/planungssicherheit-fuer-die-schiene.md`  ☑ geprüft
-- **ignore: yes?** nein  ☑ ok
-- **Hub-Folgearbeit:** `/auto-wiki update-all` für Thema `verkehr` empfohlen (drittes Schienen-Paper)
+## wie-andere-laender-die-rente-finanzieren ([wiki/publikationen/wie-andere-laender-die-rente-finanzieren.md](wiki/publikationen/wie-andere-laender-die-rente-finanzieren.md))
 
-## welche-maerkte-sich-lohnen  ([wiki/publikationen/welche-maerkte-sich-lohnen.md](wiki/publikationen/welche-maerkte-sich-lohnen.md))
-„Welche Märkte sich lohnen" — Tragfähigkeitscheck für wirtschaftspolitische Hebel, 2026-06-09, Görlich/Paleschke.
-- **Cluster:** `wirtschaftspolitik` — Grenzfall? Alternative: `haushalt` (Subventionen/Finanzhilfen aus dem Bundeshaushalt); Kern ist aber Bewertung privater Geschäftsmodelle.  ☑ ok
+Saskia Gottschalk, Florian Schuster-Johnson, Hannah Hägele, Amelie Kaupa · 2026-06-22 · Policy Paper
+
+- **Cluster:** `haushalt` — im Review bestätigt.  ☑ ok
 - **Kanten:**
-  - → `comeback-deutschland-industrie-turnarounds` (hoch, Paleschke 2026)  ☑ ok
-  - → `wie-viel-bang-for-the-buck-steckt-in-subventionen` (hoch, Schuster-Johnson & Sigl-Glöckner 2026)  ☑ ok
-  - → `bundeshaushaltsmonitor-2026` (hoch, 28-Mrd.-Referenz)  ☑ ok
-  - → `wie-china-markt-fuer-markt-erobert` (**mittel**, China-Schock-2.0-Anschluss ohne Zitation)  ☑ bestätigt
-- **Fact-Check:** 0 ✗ / 1 ⚠ — PDF-Deckblatt sagt „Hintergrundpapier", Frontmatter `policy-paper` (entspricht bestehender Konvention, Schema kennt kein `hintergrundpapier`). Siehe `wiki/_fact-check/welche-maerkte-sich-lohnen.md`  ☑ geprüft
-- **ignore: yes?** nein  ☑ ok
-- **Hub-Folgearbeit:** zusammen mit viel-wissen-wenig-wachstum → Thema `wirtschaft`
+  - `→ bundeshaushaltsmonitor-2026` (hoch, „Haushaltslücke als Ausgangslage") — belegt.  ☑ bestätigt
+  - `→ 5-milliarden-spielraum-im-sozialstaat-gewinnen` (hoch, „Sozialstaatsausgaben-Vorarbeit") — belegt.  ☑ bestätigt
+  - `→ wer-reformen-will-muss-kitas-bauen` (hoch, „Erwerbstätigkeit und Haushaltswirkung") — im
+    Review bestätigt, Konfidenz von mittel auf hoch gesetzt.  ☑ bestätigt
+  - ~~`→ was-kostet-eine-sichere-lebenswerte-und-nachhaltige-zukunft`~~ — im Review verworfen
+    (zitiert, aber nur als Hintergrund).
+- **Fact-Check:** 0 ✗ / 2 ⚠ — `wiki/_fact-check/wie-andere-laender-die-rente-finanzieren.md` (lokal, gitignored).
+  ⚠ #1: „11 Mrd. €" steht im PDF ausgeschrieben („elf Milliarden Euro"); `check_stub_numbers.py`
+  hat die Ziffernfolge nur andernorts gefunden, also falsch-positiv bestätigt. Inhaltlich korrekt.  ☐ geprüft
+- **ignore: yes?** nein — eigenständige Publikation.  ☐ ok
+- **Hub-Folgearbeit:** `/auto-wiki update-all` für Haushalt und ggf. einen Sozialstaat-/Rente-Hub —
+  bisher existiert keine Themenseite zur Alterssicherung.
 
-## kapitalbedarfe-und-finanzierung-von-energieverteilnetzen (Duplikat)
-- PDF ist **byte-identisch** (4 225 379 Bytes) mit `Investitionen in eine zukunftsfähige Daseins­vorsorge.pdf` — der Website-Artikel „Kapitalbedarfe und Finanzierung von Energieverteilnetzen" verlinkt dieselbe Agora/Stiftung-Klimaneutralität/DZ-Analyse.
-- Stub mit `ignore: yes` angelegt, Hauptknoten bleibt [[investitionen-in-eine-zukunftsfaehige-daseinsvorsorge]]. Kein Graph-Node.  ☑ ok
+## Sammelpunkte (nicht paper-spezifisch)
+
+- **Scraper lädt Duplikate — behoben.** `download_fachtexte.py` deduplizierte nur über den
+  Dateinamen. Die Website liefert dieselbe PDF unter wechselnden Namen (Halbgeviertstrich vs.
+  Bindestrich, gerades vs. typografisches Apostroph, Lang- vs. Kurztitel), deshalb kamen in
+  diesem Lauf **12 byte-identische Duplikate** herunter. Alle 12 wurden gelöscht.
+  Das Skript lädt jetzt in eine Temp-Datei, vergleicht den MD5 gegen einen Index aller
+  vorhandenen PDFs und verwirft Treffer, bevor sie im Korpus landen; verworfene Dateien stehen
+  in `download_log.json` unter `duplicates_removed`. Gegenprobe: erneuter Lauf meldet
+  0 Downloads, 12 Duplikate, 0 Fehler, PDF-Zahl unverändert 119.  ☐ ok
+- **`add_to_graph.py` war veraltet — behoben.** Es schrieb `cluster` statt `clusterA`/`clusterB`,
+  ließ `pdf_url`/`web_url`/`summary` weg und kannte den Cluster `geldpolitik und anleihemärkte`
+  nicht (brach dort ab). Die beiden Nodes dieses Laufs wurden deshalb von Hand im Bestandsformat
+  eingetragen. Das Skript schreibt jetzt das Bestandsformat; `clusterA` kann optional im
+  Frontmatter gesetzt werden und fällt sonst auf die Cluster-ID zurück. Gegenprobe: das Skript
+  erzeugt für `china-s-dedollarisation-strategy` exakt den von Hand eingetragenen Knoten.  ☐ ok
+- ~~Doppelter Knoten `reformen-brauchen-kitas` / `wer-reformen-will-muss-kitas-bauen`~~ — kein
+  Duplikat. `reformen-brauchen-kitas` ist der Geldbrief, `wer-reformen-will-muss-kitas-bauen`
+  der Fachtext dazu; beide sind eigenständige Publikationen vom 2026-04-16. Kein `ignore`-Marker
+  nötig. Die Rente-Kante zeigt auf den Fachtext.  ☑ geklärt
+- **`markitdown` nicht im PATH.** `convert_pdf_to_markdown.py` ruft das CLI auf; unter Windows
+  liegt es in `…\Python311\Scripts`, das nicht im PATH ist — die Konvertierung meldet dann
+  fälschlich „markitdown nicht installiert". Im Lauf per PATH-Erweiterung umgangen, Skript
+  unverändert.  ☐ Aufruf auf `python -m` umstellen?
+- **`--reviewer` im Skill wirkungslos.** `gh pr create --reviewer philippasigl` läuft ins Leere,
+  weil GitHub keine Review-Anfrage an die Autorin des PRs zulässt (`reviewRequests` bleibt leer).
+  Die Benachrichtigungs-Mail, auf die der `wiki-auto-update`-Skill baut, kommt damit nie.  ☐ Skill anpassen?
+- **`web_url`-Konvention hat sich geändert.** Die Website nutzt jetzt
+  `dezernatzukunft.org/publikationen/<slug>` (per `<link rel="canonical">` bestätigt); der
+  Bestand hat überwiegend die alte Form `dezernatzukunft.org/<slug>/`. Die beiden neuen Stubs
+  nutzen die neue Form.  ☐ Bestand später angleichen?
 
 ## Fehlgeschlagen / manuell
-- keine — alle 4 PDFs der Arbeitsliste verarbeitet.
+
+- keine
 
 ## Nicht in diesem Lauf genommen (Backlog über --max hinaus)
-- keine.
+
+- keine — `needs_reprocessing.py` ist nach dem Lauf leer
