@@ -30,8 +30,12 @@ def convert_pdf(pdf_path: Path, output_dir: Path) -> tuple[bool, str, Path]:
     output_file = output_dir / f"{pdf_path.stem}.md"
 
     try:
+        # Als Modul aufrufen, nicht als CLI: markitdown.exe liegt unter Windows im
+        # Scripts-Verzeichnis der Python-Installation, das häufig nicht im PATH
+        # steht. Der Aufruf schlug dann mit FileNotFoundError fehl und meldete
+        # fälschlich "nicht installiert".
         result = subprocess.run(
-            ["markitdown", str(pdf_path)],
+            [sys.executable, "-m", "markitdown", str(pdf_path)],
             capture_output=True,
             text=True,
             encoding='utf-8',
@@ -40,7 +44,10 @@ def convert_pdf(pdf_path: Path, output_dir: Path) -> tuple[bool, str, Path]:
         )
 
         if result.returncode != 0:
-            return False, f"markitdown Fehler: {result.stderr}", output_file
+            stderr = (result.stderr or "").strip()
+            if "No module named markitdown" in stderr:
+                return False, "markitdown nicht installiert (pip install markitdown)", output_file
+            return False, f"markitdown Fehler: {stderr}", output_file
 
         if not result.stdout.strip():
             return False, "markitdown lieferte leere Ausgabe (PDF defekt oder Bild-Scan?)", output_file
@@ -54,7 +61,7 @@ def convert_pdf(pdf_path: Path, output_dir: Path) -> tuple[bool, str, Path]:
     except subprocess.TimeoutExpired:
         return False, f"Timeout (>{MARKITDOWN_TIMEOUT}s) bei Konvertierung", output_file
     except FileNotFoundError:
-        return False, "markitdown nicht installiert (pip install markitdown)", output_file
+        return False, f"Python-Interpreter nicht gefunden: {sys.executable}", output_file
     except Exception as e:
         return False, f"Fehler: {str(e)}", output_file
 

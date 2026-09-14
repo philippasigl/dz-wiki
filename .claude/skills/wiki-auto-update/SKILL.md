@@ -197,15 +197,37 @@ git push -u origin auto/wiki-update-<YYYY-MM-DD>
 gh pr create --draft \
   --base main \
   --title "Auto-Update Wiki <YYYY-MM-DD>: <N> neue Publikation(en)" \
-  --body-file wiki/_review-queue.md \
-  --reviewer philippasigl
+  --body-file wiki/_review-queue.md
 ```
 
 - **Draft-PR**, damit nichts versehentlich live geht.
-- `--reviewer` setzt die Nutzerin als Reviewerin → GitHub schickt ihr automatisch eine
-  Benachrichtigungs-Mail (so „fragt“ der Lauf nach Input; kein Gmail-Setup nötig).
+- **Kein `--reviewer`.** GitHub lässt keine Review-Anfrage an die Autorin des PRs zu, und der
+  Lauf erstellt den PR mit dem `gh`-Token der Nutzerin — sie ist also immer selbst die Autorin.
+  `--reviewer philippasigl` wird stillschweigend ignoriert (`reviewRequests` bleibt leer). Aus
+  demselben Grund helfen `--assignee @me` oder ein `@`-Kommentar nicht: GitHub benachrichtigt
+  niemanden über die eigenen Aktionen. Stattdessen meldet sich der Lauf lokal, siehe Schritt 10.
 - **Niemals** `git push` auf `main`, **niemals** `gh pr merge`. Mergen ist Handarbeit der
   Nutzerin und löst erst dann den Live-Deploy aus.
+
+### 10. Melden — der Lauf muss sich bemerkbar machen
+
+Weil keine Mail kommt, endet jeder Lauf mit einer Desktop-Benachrichtigung und der PR-URL in
+der Schlussmeldung. Die Benachrichtigung braucht kein Zusatzmodul:
+
+```powershell
+Add-Type -AssemblyName System.Windows.Forms
+$n = New-Object System.Windows.Forms.NotifyIcon
+$n.Icon = [System.Drawing.SystemIcons]::Information
+$n.BalloonTipTitle = "DZ Wiki Auto-Update"
+$n.BalloonTipText = "<N> neue Publikation(en) - PR #<Nr> wartet auf Review"
+$n.Visible = $true
+$n.ShowBalloonTip(20000)
+Start-Sleep -Seconds 5
+$n.Dispose()
+```
+
+Die PR-URL gehört **immer** in die letzte Zeile der Schlussmeldung — auch wenn der Lauf sonst
+nichts gefunden hat.
 
 ## Template: `wiki/_review-queue.md`
 
@@ -243,4 +265,5 @@ Branch: `auto/wiki-update-<YYYY-MM-DD>`
 - [ ] `build_wiki_index.py`, `build_wiki_meta.py`, `sync_to_site.py` gelaufen
 - [ ] `wiki/log.md` ergänzt
 - [ ] `wiki/_review-queue.md` neu geschrieben
-- [ ] Draft-PR geöffnet, Nutzerin als Reviewerin, **nicht** auf main gepusht, **nicht** gemergt
+- [ ] Draft-PR geöffnet, **nicht** auf main gepusht, **nicht** gemergt
+- [ ] Desktop-Benachrichtigung abgesetzt, PR-URL in der letzten Zeile der Schlussmeldung
