@@ -1,7 +1,8 @@
 # Review-Queue — Auto-Update 2026-09-10
 
-Automatischer Lauf hat **2 neue Publikationen** entworfen. Bitte je Paper die offenen Punkte
-prüfen, ggf. im Stub korrigieren, dann den PR mergen (Merge = live).
+Automatischer Lauf hat **2 neue Publikationen** entworfen. Review ist eingearbeitet: beide
+Cluster bestätigt, fünf Kanten bestätigt, eine verworfen, das vermeintliche Knoten-Duplikat
+als Geldbrief/Fachtext-Paar geklärt.
 
 Branch: `auto/wiki-update-2026-08-27` (Lauf vom 27.08. war beim Download stehengeblieben und
 wurde hier fortgeführt, statt einen neuen Branch aufzumachen)
@@ -10,15 +11,13 @@ wurde hier fortgeführt, statt einen neuen Branch aufzumachen)
 
 Nils Gerresheim, Max Krahé, Jens van 't Klooster · 2026-07-07 · Policy Paper
 
-- **Cluster:** `geldpolitik und anleihemärkte` — Grenzfall. Alternative: `ausland`. Gewählt wie
-  beim Vorgängerpapier desselben Autorentrios (`die-folgen-einer-euro-internationalisierung`);
-  das Papier behandelt Währungsinternationalisierung, nicht Außenbeziehungen als solche.  ☐ ok
+- **Cluster:** `geldpolitik und anleihemärkte` — im Review bestätigt.  ☑ ok
 - **Kanten:**
   - `china-s-dedollarisation-strategy → die-folgen-einer-euro-internationalisierung`
-    (hoch, „Wohlfahrtsschätzung Euro-Internationalisierung") — im Literaturverzeichnis belegt.  ☐ bestätigen ☐ verwerfen
+    (hoch, „Wohlfahrtsschätzung Euro-Internationalisierung") — im Literaturverzeichnis belegt.  ☑ bestätigt
   - `china-s-dedollarisation-strategy → europas-truempfe-gegen-trump`
     (hoch, „Dollarabhängigkeit als Druckmittel") — Sigl-Glöckner (2026) im Literaturverzeichnis.
-    Zeigt auf den deutschen Hauptknoten, weil `europe-s-trump-cards` `ignore: yes` trägt.  ☐ bestätigen ☐ verwerfen
+    Zeigt auf den deutschen Hauptknoten, weil `europe-s-trump-cards` `ignore: yes` trägt.  ☑ bestätigt
 - **Fact-Check:** 0 ✗ / 2 ⚠ — `wiki/_fact-check/china-s-dedollarisation-strategy.md` (lokal, gitignored).
   Beide ⚠ unkritisch; #2 ist die korpusweite Frage „van 't Klooster" vs. „van’t Klooster".  ☐ geprüft
 - **ignore: yes?** nein — eigenständige Publikation.  ☐ ok
@@ -29,15 +28,14 @@ Nils Gerresheim, Max Krahé, Jens van 't Klooster · 2026-07-07 · Policy Paper
 
 Saskia Gottschalk, Florian Schuster-Johnson, Hannah Hägele, Amelie Kaupa · 2026-06-22 · Policy Paper
 
-- **Cluster:** `haushalt` — Grenzfall. Alternative: `makro`. Gewählt, weil die Zielgröße die
-  Belastung des Bundeshaushalts durch Alterssicherung ist, nicht der Arbeitsmarkt.  ☐ ok
+- **Cluster:** `haushalt` — im Review bestätigt.  ☑ ok
 - **Kanten:**
-  - `→ bundeshaushaltsmonitor-2026` (hoch, „Haushaltslücke als Ausgangslage") — im Literaturverzeichnis belegt.  ☐ bestätigen ☐ verwerfen
-  - `→ 5-milliarden-spielraum-im-sozialstaat-gewinnen` (hoch, „Sozialstaatsausgaben-Vorarbeit") — belegt.  ☐ bestätigen ☐ verwerfen
-  - `→ wer-reformen-will-muss-kitas-bauen` (mittel, „Erwerbstätigkeit und Haushaltswirkung") —
-    Zitat belegt, aber der Zielknoten ist doppelt vorhanden (siehe Sammelpunkte unten).  ☐ bestätigen ☐ verwerfen
-  - `→ was-kostet-eine-sichere-lebenswerte-und-nachhaltige-zukunft` (mittel, „Finanzbedarfe des Staates") —
-    zitiert, aber nur als Hintergrund.  ☐ bestätigen ☐ verwerfen
+  - `→ bundeshaushaltsmonitor-2026` (hoch, „Haushaltslücke als Ausgangslage") — belegt.  ☑ bestätigt
+  - `→ 5-milliarden-spielraum-im-sozialstaat-gewinnen` (hoch, „Sozialstaatsausgaben-Vorarbeit") — belegt.  ☑ bestätigt
+  - `→ wer-reformen-will-muss-kitas-bauen` (hoch, „Erwerbstätigkeit und Haushaltswirkung") — im
+    Review bestätigt, Konfidenz von mittel auf hoch gesetzt.  ☑ bestätigt
+  - ~~`→ was-kostet-eine-sichere-lebenswerte-und-nachhaltige-zukunft`~~ — im Review verworfen
+    (zitiert, aber nur als Hintergrund).
 - **Fact-Check:** 0 ✗ / 2 ⚠ — `wiki/_fact-check/wie-andere-laender-die-rente-finanzieren.md` (lokal, gitignored).
   ⚠ #1: „11 Mrd. €" steht im PDF ausgeschrieben („elf Milliarden Euro"); `check_stub_numbers.py`
   hat die Ziffernfolge nur andernorts gefunden, also falsch-positiv bestätigt. Inhaltlich korrekt.  ☐ geprüft
@@ -61,9 +59,10 @@ Saskia Gottschalk, Florian Schuster-Johnson, Hannah Hägele, Amelie Kaupa · 202
   eingetragen. Das Skript schreibt jetzt das Bestandsformat; `clusterA` kann optional im
   Frontmatter gesetzt werden und fällt sonst auf die Cluster-ID zurück. Gegenprobe: das Skript
   erzeugt für `china-s-dedollarisation-strategy` exakt den von Hand eingetragenen Knoten.  ☐ ok
-- **Doppelter Knoten für dieselbe Publikation:** `reformen-brauchen-kitas` und
-  `wer-reformen-will-muss-kitas-bauen` beschreiben „Wer Reformen will, muss Kitas bauen", keiner
-  trägt `ignore: yes`. Vorbestehend, nicht aus diesem Lauf.  ☐ Hauptknoten festlegen
+- ~~Doppelter Knoten `reformen-brauchen-kitas` / `wer-reformen-will-muss-kitas-bauen`~~ — kein
+  Duplikat. `reformen-brauchen-kitas` ist der Geldbrief, `wer-reformen-will-muss-kitas-bauen`
+  der Fachtext dazu; beide sind eigenständige Publikationen vom 2026-04-16. Kein `ignore`-Marker
+  nötig. Die Rente-Kante zeigt auf den Fachtext.  ☑ geklärt
 - **`markitdown` nicht im PATH.** `convert_pdf_to_markdown.py` ruft das CLI auf; unter Windows
   liegt es in `…\Python311\Scripts`, das nicht im PATH ist — die Konvertierung meldet dann
   fälschlich „markitdown nicht installiert". Im Lauf per PATH-Erweiterung umgangen, Skript

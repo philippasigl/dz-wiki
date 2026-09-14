@@ -2556,13 +2556,7 @@
       "from": "wie-andere-laender-die-rente-finanzieren",
       "to": "wer-reformen-will-muss-kitas-bauen",
       "label": "Erwerbstätigkeit und Haushaltswirkung",
-      "confidence": "mittel"
-    },
-    {
-      "from": "wie-andere-laender-die-rente-finanzieren",
-      "to": "was-kostet-eine-sichere-lebenswerte-und-nachhaltige-zukunft",
-      "label": "Finanzbedarfe des Staates",
-      "confidence": "mittel"
+      "confidence": "hoch"
     }
   ],
   "clusters": {
