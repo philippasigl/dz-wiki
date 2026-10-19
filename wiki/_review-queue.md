@@ -1,84 +1,21 @@
-# Review-Queue — Auto-Update 2026-09-10
+# Review-Queue — Auto-Update 2026-10-19
 
-Automatischer Lauf hat **2 neue Publikationen** entworfen. Review ist eingearbeitet: beide
-Cluster bestätigt, fünf Kanten bestätigt, eine verworfen, das vermeintliche Knoten-Duplikat
-als Geldbrief/Fachtext-Paar geklärt.
+Automatischer Lauf hat **1 neue Publikation** entworfen. Bitte die offenen Punkte prüfen,
+ggf. im Stub korrigieren, dann den PR mergen (Merge = live).
 
-Branch: `auto/wiki-update-2026-08-27` (Lauf vom 27.08. war beim Download stehengeblieben und
-wurde hier fortgeführt, statt einen neuen Branch aufzumachen)
+Branch: `auto/wiki-update-2026-10-19`
 
-## china-s-dedollarisation-strategy ([wiki/publikationen/china-s-dedollarisation-strategy.md](wiki/publikationen/china-s-dedollarisation-strategy.md))
-
-Nils Gerresheim, Max Krahé, Jens van 't Klooster · 2026-07-07 · Policy Paper
-
-- **Cluster:** `geldpolitik und anleihemärkte` — im Review bestätigt.  ☑ ok
-- **Kanten:**
-  - `china-s-dedollarisation-strategy → die-folgen-einer-euro-internationalisierung`
-    (hoch, „Wohlfahrtsschätzung Euro-Internationalisierung") — im Literaturverzeichnis belegt.  ☑ bestätigt
-  - `china-s-dedollarisation-strategy → europas-truempfe-gegen-trump`
-    (hoch, „Dollarabhängigkeit als Druckmittel") — Sigl-Glöckner (2026) im Literaturverzeichnis.
-    Zeigt auf den deutschen Hauptknoten, weil `europe-s-trump-cards` `ignore: yes` trägt.  ☑ bestätigt
-- **Fact-Check:** 0 ✗ / 2 ⚠ — `wiki/_fact-check/china-s-dedollarisation-strategy.md` (lokal, gitignored).
-  Beide ⚠ unkritisch; #2 ist die korpusweite Frage „van 't Klooster" vs. „van’t Klooster".  ☐ geprüft
-- **ignore: yes?** nein — eigenständige Publikation.  ☐ ok
-- **Hub-Folgearbeit:** `/auto-wiki update-all` für Geldpolitik & Anleihemärkte (Euro-Internationalisierung,
-  Dollarabhängigkeit) — der Hub kennt das Papier noch nicht.
-
-## wie-andere-laender-die-rente-finanzieren ([wiki/publikationen/wie-andere-laender-die-rente-finanzieren.md](wiki/publikationen/wie-andere-laender-die-rente-finanzieren.md))
-
-Saskia Gottschalk, Florian Schuster-Johnson, Hannah Hägele, Amelie Kaupa · 2026-06-22 · Policy Paper
-
-- **Cluster:** `haushalt` — im Review bestätigt.  ☑ ok
-- **Kanten:**
-  - `→ bundeshaushaltsmonitor-2026` (hoch, „Haushaltslücke als Ausgangslage") — belegt.  ☑ bestätigt
-  - `→ 5-milliarden-spielraum-im-sozialstaat-gewinnen` (hoch, „Sozialstaatsausgaben-Vorarbeit") — belegt.  ☑ bestätigt
-  - `→ wer-reformen-will-muss-kitas-bauen` (hoch, „Erwerbstätigkeit und Haushaltswirkung") — im
-    Review bestätigt, Konfidenz von mittel auf hoch gesetzt.  ☑ bestätigt
-  - ~~`→ was-kostet-eine-sichere-lebenswerte-und-nachhaltige-zukunft`~~ — im Review verworfen
-    (zitiert, aber nur als Hintergrund).
-- **Fact-Check:** 0 ✗ / 2 ⚠ — `wiki/_fact-check/wie-andere-laender-die-rente-finanzieren.md` (lokal, gitignored).
-  ⚠ #1: „11 Mrd. €" steht im PDF ausgeschrieben („elf Milliarden Euro"); `check_stub_numbers.py`
-  hat die Ziffernfolge nur andernorts gefunden, also falsch-positiv bestätigt. Inhaltlich korrekt.  ☐ geprüft
-- **ignore: yes?** nein — eigenständige Publikation.  ☐ ok
-- **Hub-Folgearbeit:** `/auto-wiki update-all` für Haushalt und ggf. einen Sozialstaat-/Rente-Hub —
-  bisher existiert keine Themenseite zur Alterssicherung.
-
-## Sammelpunkte (nicht paper-spezifisch)
-
-- **Scraper lädt Duplikate — behoben.** `download_fachtexte.py` deduplizierte nur über den
-  Dateinamen. Die Website liefert dieselbe PDF unter wechselnden Namen (Halbgeviertstrich vs.
-  Bindestrich, gerades vs. typografisches Apostroph, Lang- vs. Kurztitel), deshalb kamen in
-  diesem Lauf **12 byte-identische Duplikate** herunter. Alle 12 wurden gelöscht.
-  Das Skript lädt jetzt in eine Temp-Datei, vergleicht den MD5 gegen einen Index aller
-  vorhandenen PDFs und verwirft Treffer, bevor sie im Korpus landen; verworfene Dateien stehen
-  in `download_log.json` unter `duplicates_removed`. Gegenprobe: erneuter Lauf meldet
-  0 Downloads, 12 Duplikate, 0 Fehler, PDF-Zahl unverändert 119.  ☐ ok
-- **`add_to_graph.py` war veraltet — behoben.** Es schrieb `cluster` statt `clusterA`/`clusterB`,
-  ließ `pdf_url`/`web_url`/`summary` weg und kannte den Cluster `geldpolitik und anleihemärkte`
-  nicht (brach dort ab). Die beiden Nodes dieses Laufs wurden deshalb von Hand im Bestandsformat
-  eingetragen. Das Skript schreibt jetzt das Bestandsformat; `clusterA` kann optional im
-  Frontmatter gesetzt werden und fällt sonst auf die Cluster-ID zurück. Gegenprobe: das Skript
-  erzeugt für `china-s-dedollarisation-strategy` exakt den von Hand eingetragenen Knoten.  ☐ ok
-- ~~Doppelter Knoten `reformen-brauchen-kitas` / `wer-reformen-will-muss-kitas-bauen`~~ — kein
-  Duplikat. `reformen-brauchen-kitas` ist der Geldbrief, `wer-reformen-will-muss-kitas-bauen`
-  der Fachtext dazu; beide sind eigenständige Publikationen vom 2026-04-16. Kein `ignore`-Marker
-  nötig. Die Rente-Kante zeigt auf den Fachtext.  ☑ geklärt
-- **`markitdown` nicht im PATH.** `convert_pdf_to_markdown.py` ruft das CLI auf; unter Windows
-  liegt es in `…\Python311\Scripts`, das nicht im PATH ist — die Konvertierung meldet dann
-  fälschlich „markitdown nicht installiert". Im Lauf per PATH-Erweiterung umgangen, Skript
-  unverändert.  ☐ Aufruf auf `python -m` umstellen?
-- **`--reviewer` im Skill wirkungslos.** `gh pr create --reviewer philippasigl` läuft ins Leere,
-  weil GitHub keine Review-Anfrage an die Autorin des PRs zulässt (`reviewRequests` bleibt leer).
-  Die Benachrichtigungs-Mail, auf die der `wiki-auto-update`-Skill baut, kommt damit nie.  ☐ Skill anpassen?
-- **`web_url`-Konvention hat sich geändert.** Die Website nutzt jetzt
-  `dezernatzukunft.org/publikationen/<slug>` (per `<link rel="canonical">` bestätigt); der
-  Bestand hat überwiegend die alte Form `dezernatzukunft.org/<slug>/`. Die beiden neuen Stubs
-  nutzen die neue Form.  ☐ Bestand später angleichen?
+## how-to-think-about-electricity-tax-cuts  ([wiki/publikationen/how-to-think-about-electricity-tax-cuts.md](wiki/publikationen/how-to-think-about-electricity-tax-cuts.md))
+- **Cluster:** `wirtschaftspolitik` — Grenzfall (Steuerausfälle für den Staat, Energie, Unternehmen). Alternativen: `haushalt` oder `infra`  ☐ ok
+- **Format:** `policy-paper` (Papier ohne Kopfzeile, englisch, DZ-Analyse mit Politikempfehlungen; Alternative `studie`)  ☐ ok
+- **Kanten:** `how-to-think-about-electricity-tax-cuts → stromsubvention-als-konjunkturpolitik` (confidence: mittel, Thema Stromsteuersenkung, keine explizite Referenz)  ☐ bestätigen ☐ verwerfen
+- **Fact-Check:** 1 ⚠ / 0 ✗ — Aussage zur Industrie („höchstens 0,1 Punkte“) gilt nur für bereits begünstigte Industrie; siehe `wiki/_fact-check/how-to-think-about-electricity-tax-cuts.md`  ☐ geprüft
+- **web_url:** leer (Website-Seite nicht ermittelt)  ☐ ergänzen
+- **ignore: yes?** nein
+- **Hub-Folgearbeit:** ggf. `/auto-wiki update-all` für das Thema `energiewende`
 
 ## Fehlgeschlagen / manuell
-
-- keine
+- Keine.
 
 ## Nicht in diesem Lauf genommen (Backlog über --max hinaus)
-
-- keine — `needs_reprocessing.py` ist nach dem Lauf leer
+- Keine.

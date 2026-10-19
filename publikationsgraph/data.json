@@ -1865,6 +1865,29 @@
       "pdf_url": "/publikationen/China’s Dedollarisation Strategy.pdf",
       "web_url": "https://dezernatzukunft.org/publikationen/chinas-dedollarisation-strategy",
       "summary": "China hat seine Dollarabhängigkeit vor allem bei der Zahlungsabwicklung reduziert, kaum aber bei Fakturierung und Anlage. Europa kann daraus lernen, wo eigene Abhängigkeiten wirklich angreifbar sind."
+    },
+    {
+      "id": "how-to-think-about-electricity-tax-cuts",
+      "title": "How to think about electricity tax cuts",
+      "date": "2026-10-15",
+      "clusterA": "Energie",
+      "clusterB": "wirtschaftspolitik",
+      "authors": [
+        "Niklas Illenseer",
+        "Felix Heilmann",
+        "Valentin Kölzer",
+        "Janek Steitz"
+      ],
+      "tags": [
+        "stromsteuer",
+        "elektrifizierung",
+        "energiesteuern",
+        "strompreis",
+        "eu-energiebesteuerungsrichtlinie"
+      ],
+      "pdf_url": "/publikationen/Was Stromsteuersenkungen leisten können.pdf",
+      "web_url": "",
+      "summary": "Die EU-Kommission will Strom nicht höher besteuern als Gas. Das Papier untersucht in sieben Mitgliedstaaten, was eine Stromsteuersenkung für Rechnungen, Elektrifizierungsanreize und öffentliche Haushalte bedeutet."
     }
   ],
   "edges": [
@@ -2557,6 +2580,12 @@
       "to": "wer-reformen-will-muss-kitas-bauen",
       "label": "Erwerbstätigkeit und Haushaltswirkung",
       "confidence": "hoch"
+    },
+    {
+      "from": "how-to-think-about-electricity-tax-cuts",
+      "to": "stromsubvention-als-konjunkturpolitik",
+      "label": "Stromsteuersenkung-Vertiefung",
+      "confidence": "mittel"
     }
   ],
   "clusters": {
