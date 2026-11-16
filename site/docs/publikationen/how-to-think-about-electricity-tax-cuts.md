@@ -7,7 +7,7 @@ authors:
   - "Felix Heilmann"
   - "Valentin Kölzer"
   - "Janek Steitz"
-cluster: wirtschaftspolitik
+cluster: haushalt
 format: "policy-paper"
 tags:
   - "stromsteuer"
@@ -16,6 +16,7 @@ tags:
   - "strompreis"
   - "eu-energiebesteuerungsrichtlinie"
 pdf_url: "/publikationen/Was Stromsteuersenkungen leisten können.pdf"
+web_url: "https://www.dezernatzukunft.org/publikationen/how-to-think-about-electricity-tax-cuts"
 summary: "Die EU-Kommission will Strom nicht höher besteuern als Gas. Das Papier untersucht in sieben Mitgliedstaaten, was eine Stromsteuersenkung für Rechnungen, Elektrifizierungsanreize und öffentliche Haushalte bedeutet."
 ---
 

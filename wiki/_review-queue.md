@@ -1,18 +1,19 @@
-# Review-Queue — Auto-Update 2026-10-19
+# Review-Queue — Auto-Update 2026-11-16
 
-Automatischer Lauf hat **1 neue Publikation** entworfen. Bitte die offenen Punkte prüfen,
-ggf. im Stub korrigieren, dann den PR mergen (Merge = live).
+Automatischer Lauf hat **keine neuen Publikationen** gefunden (Scrape: 0 neu, 87 vorhanden,
+12 Duplikate). Der PR enthält nur die Review-Korrekturen zum Lauf vom 2026-10-19, die nach dem
+Merge von PR #3 nicht mehr auf `main` gelandet waren, sowie neu generierte Index-Dateien.
 
-Branch: `auto/wiki-update-2026-10-19`
+Branch: `auto/wiki-update-2026-11-16`
 
-## how-to-think-about-electricity-tax-cuts  ([wiki/publikationen/how-to-think-about-electricity-tax-cuts.md](wiki/publikationen/how-to-think-about-electricity-tax-cuts.md))
-- **Cluster:** `wirtschaftspolitik` — Grenzfall (Steuerausfälle für den Staat, Energie, Unternehmen). Alternativen: `haushalt` oder `infra`  ☐ ok
-- **Format:** `policy-paper` (Papier ohne Kopfzeile, englisch, DZ-Analyse mit Politikempfehlungen; Alternative `studie`)  ☐ ok
-- **Kanten:** `how-to-think-about-electricity-tax-cuts → stromsubvention-als-konjunkturpolitik` (confidence: mittel, Thema Stromsteuersenkung, keine explizite Referenz)  ☐ bestätigen ☐ verwerfen
-- **Fact-Check:** 1 ⚠ / 0 ✗ — Aussage zur Industrie („höchstens 0,1 Punkte“) gilt nur für bereits begünstigte Industrie; siehe `wiki/_fact-check/how-to-think-about-electricity-tax-cuts.md`  ☐ geprüft
-- **web_url:** leer (Website-Seite nicht ermittelt)  ☐ ergänzen
-- **ignore: yes?** nein
-- **Hub-Folgearbeit:** ggf. `/auto-wiki update-all` für das Thema `energiewende`
+## Nachtrag how-to-think-about-electricity-tax-cuts  ([wiki/publikationen/how-to-think-about-electricity-tax-cuts.md](wiki/publikationen/how-to-think-about-electricity-tax-cuts.md))
+- **Cluster:** `wirtschaftspolitik` → `haushalt` (von dir gesetzt, in Stub, Graph und Site übernommen)  ☑ ok
+- **web_url:** ergänzt  ☑
+- **Kante** `→ stromsubvention-als-konjunkturpolitik`: von dir bestätigt, steht im Graph weiter auf `confidence: mittel`  ☐ auf `hoch` heben?
+- **Aus dem Vorlauf noch offen:**
+  - Format `policy-paper` (Alternative `studie`)  ☐ ok
+  - Fact-Check 1 ⚠ (Aussage „höchstens 0,1 Punkte“ gilt nur für bereits begünstigte Industrie), siehe `wiki/_fact-check/how-to-think-about-electricity-tax-cuts.md`  ☐ geprüft
+  - Hub-Folgearbeit: ggf. `/auto-wiki update-all` für das Thema `energiewende`
 
 ## Fehlgeschlagen / manuell
 - Keine.
