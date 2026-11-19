@@ -106,4 +106,4 @@ Alphabetisch sortiert.
 
 ---
 
-*Letzte Aktualisierung: 2026-11-16*
+*Letzte Aktualisierung: 2026-11-19*

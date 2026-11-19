@@ -23,7 +23,7 @@ summary: "Die EU-Kommission will Strom nicht höher besteuern als Gas. Das Papie
 ## Kernthesen
 - Die Stromsteuersysteme der EU-Staaten unterscheiden sich stark; die von der Kommission vorgeschlagene Paritätsregel (Strom nicht höher besteuert als Gas) beträfe nur etwa ein Drittel der Mitgliedstaaten.
 - Die Stromsteuer macht für einen typischen Familienhaushalt in den sieben analysierten Ländern zwischen 0,5 und 14 Prozent des Strompreises aus; nur wo dieser Anteil hoch ist (Frankreich, Deutschland), senkt eine Kürzung die Rechnung spürbar.
-- Der Elektrifizierungsanreiz hängt vom Strom-Gas-Preisverhältnis ab: Eine Senkung auf das EU-Minimum verringert es für Haushalte um 0,1 bis 0,9 Punkte, für große industrielle Verbraucher höchstens um 0,1 Punkte, weil diese schon nahe am Minimum zahlen.
+- Der Elektrifizierungsanreiz hängt vom Strom-Gas-Preisverhältnis ab: Eine Senkung auf das EU-Minimum verringert es für Haushalte um 0,1 bis 0,9 Punkte, für große, meist bereits begünstigte Industrieverbraucher höchstens um 0,1 Punkte, weil diese schon nahe am Minimum zahlen.
 - Kurzfristig überwiegen die Steuerausfälle; langfristig kann sich die Haushaltslage durch geringere Anfälligkeit für fossile Preisschocks und vermiedene Klimaschäden verbessern, während jeder Wechsel weg von Gas und Öl die Steuern auf fossile Energien aushöhlt.
 - Gezielte Senkungen (nach Verwendung oder auf Grundverbrauch) sind fiskalisch günstiger als eine allgemeine, nach der Energiesteuerrichtlinie aber meist nur mit einstimmigem Ratsbeschluss und befristet auf sechs Jahre möglich.
 

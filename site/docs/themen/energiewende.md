@@ -23,6 +23,7 @@ Die Energiewende scheitert nicht am Willen, sondern an der Kapitalstruktur. Komm
 | Deutschlandfonds-Investitionsvolumen / Lücke ab 2029 | 130 Mrd. € / bis 20 Mrd. € | [Was taugt der Deutschlandfonds?](/wiki/publikationen/was-taugt-der-deutschlandfonds) |
 | Staatliche Klimainvestitionen Bundesebene 2021–2030 | ca. 47 Mrd. €/Jahr (380–460 Mrd. €) | [Ausgaben für die Dekarbonisierung](/wiki/publikationen/ausgaben-fuer-die-dekarbonisierung) |
 | Kommunaler Klimainvestitionsbedarf bis 2030 | mind. 170 Mrd. € | [Kommunale Klimaschutzinvestitionen und deren Finanzierung](/wiki/publikationen/kommunale-klimaschutzinvestitionen-und-deren-finanzierung) |
+| Senkung Strom-Gas-Preisverhältnis bei Stromsteuer auf EU-Minimum (Haushalte, sieben EU-Länder) | 0,1–0,9 Punkte (2026) | [How to think about electricity tax cuts](/wiki/publikationen/how-to-think-about-electricity-tax-cuts) |
 | Strompreissenkungspaket — Belastung Bundeshaushalt | bis 19 Mrd. €/Jahr | [Stromsubvention als Konjunkturpolitik: Ökonomische Erwägungen zum geplanten Strompreispaket](/wiki/publikationen/stromsubvention-als-konjunkturpolitik) |
 | Mehrkosten Energiepreisanstieg 2022 / 2023 | 90 / 150 Mrd. € (2,3 % / 3,7 % BIP) | [Wirtschaftliche Mehrkosten durch Energiepreisanstiege: eine Schätzung](/wiki/publikationen/wirtschaftliche-mehrkosten-durch-energiepreisanstiege) |
 | Anteil Energie an EU-Inflation 2022 | rund 50 % | [Fossil Fuel to the Fire: Energy and Inflation in Europe](/wiki/publikationen/fossil-fuel-to-the-fire) |
@@ -31,6 +32,7 @@ Die Energiewende scheitert nicht am Willen, sondern an der Kapitalstruktur. Komm
 
 ## Publikationen
 
+- **2026** [How to think about electricity tax cuts](/wiki/publikationen/how-to-think-about-electricity-tax-cuts) — Stromsteuersenkung auf EU-Minimum entlastet nur bei hohem Steueranteil spürbar; gezielte Senkungen elektrifizieren günstiger.
 - **2026** [Alle Versorger versorgen: ein Deutschland-Standard für die Energiewende](/wiki/publikationen/alle-versorger-versorgen-ein-deutschland-standard-fuer-die-energiewende) — Deutschland-Standard: Länder geben EVU Nachrangkapital, Bund flankiert über Rückbürgschaften.
 - **2026** [Eigenkapital für die Energiewende](/wiki/publikationen/eigenkapital-fuer-die-energiewende) — Bauplan zur Schließung der 13-Mrd.-Eigenkapitallücke über Bausteine auf Kommune-/Länder-/Bundesebene.
 - **2026** [Hawkish Winds: Wie Zinsen die Energiewende treffen](/wiki/publikationen/hawkish-winds-wie-zinsen-die-energiewende-treffen) — EZB-Zinserhöhungen heben WACC und EEG-Förderkosten; LCOE-Aufschlag bis 4,8 % bei Wind.
