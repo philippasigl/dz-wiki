@@ -23,6 +23,7 @@ Die Energiewende scheitert nicht am Willen, sondern an der Kapitalstruktur. Komm
 | Deutschlandfonds-Investitionsvolumen / Lücke ab 2029 | 130 Mrd. € / bis 20 Mrd. € | [[was-taugt-der-deutschlandfonds]] |
 | Staatliche Klimainvestitionen Bundesebene 2021–2030 | ca. 47 Mrd. €/Jahr (380–460 Mrd. €) | [[ausgaben-fuer-die-dekarbonisierung]] |
 | Kommunaler Klimainvestitionsbedarf bis 2030 | mind. 170 Mrd. € | [[kommunale-klimaschutzinvestitionen-und-deren-finanzierung]] |
+| Senkung Strom-Gas-Preisverhältnis bei Stromsteuer auf EU-Minimum (Haushalte, sieben EU-Länder) | 0,1–0,9 Punkte (2026) | [[how-to-think-about-electricity-tax-cuts]] |
 | Strompreissenkungspaket — Belastung Bundeshaushalt | bis 19 Mrd. €/Jahr | [[stromsubvention-als-konjunkturpolitik]] |
 | Mehrkosten Energiepreisanstieg 2022 / 2023 | 90 / 150 Mrd. € (2,3 % / 3,7 % BIP) | [[wirtschaftliche-mehrkosten-durch-energiepreisanstiege]] |
 | Anteil Energie an EU-Inflation 2022 | rund 50 % | [[fossil-fuel-to-the-fire]] |
@@ -31,6 +32,7 @@ Die Energiewende scheitert nicht am Willen, sondern an der Kapitalstruktur. Komm
 
 ## Publikationen
 
+- **2026** [[how-to-think-about-electricity-tax-cuts]] — Stromsteuersenkung auf EU-Minimum entlastet nur bei hohem Steueranteil spürbar; gezielte Senkungen elektrifizieren günstiger.
 - **2026** [[alle-versorger-versorgen-ein-deutschland-standard-fuer-die-energiewende]] — Deutschland-Standard: Länder geben EVU Nachrangkapital, Bund flankiert über Rückbürgschaften.
 - **2026** [[eigenkapital-fuer-die-energiewende]] — Bauplan zur Schließung der 13-Mrd.-Eigenkapitallücke über Bausteine auf Kommune-/Länder-/Bundesebene.
 - **2026** [[hawkish-winds-wie-zinsen-die-energiewende-treffen]] — EZB-Zinserhöhungen heben WACC und EEG-Förderkosten; LCOE-Aufschlag bis 4,8 % bei Wind.
